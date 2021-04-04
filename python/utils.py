@@ -9,7 +9,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import f1_score
 from sklearn.ensemble import RandomForestClassifier
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+from scipy.signal import find_peaks
+
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -293,4 +295,166 @@ def plot_proba(y_test_dict, nrows = 3, ncols = 2, name = 'GRU') :
       ax.flatten()[i].set_ylabel('Class')
       ax.flatten()[i].set_title('Frame {} for {}'.format(frame, name))
 
+  plt.show()
+
+
+# Distance between probas of differents trames in the window
+def dist_window(x) :
+    dist = 0
+    count = 0
+    for index,vect in enumerate(x):
+        for index_,vect_ in enumerate(x):
+            if index_ != index:
+                dist+= np.linalg.norm(vect-vect_)
+                count+=1
+    if (count>0):
+        return dist/count
+    else:
+        return 0
+
+# Compute this distance with a sliding window
+def moving_average_dist(x,window_size = 10):
+    dists=[]
+    for i in range(x.shape[0]) :
+        end=min(x.shape[0], i + window_size)
+        dists.append(dist_window(x[i:end]))
+    return np.array(dists)
+
+# Smooth the probas with a moving average
+def moving_average(x,window_size = 10):
+    means=[]
+    for i in range(x.shape[0]) :
+        start = max(0 , i - window_size )
+        means.append(np.mean(x[start:i+1], axis=0))
+    return np.array(means)
+
+
+def find_letters_range(loginmdp_predict_proba,window=30):
+    mav = moving_average(loginmdp_predict_proba,window)
+    mmd = moving_average_dist(mav,window)
+    peaks, _ = find_peaks(mmd, height=0.15, distance=10)
+    plt.figure(figsize = (15,5))
+    plt.plot(mmd)
+    plt.plot(peaks, mmd[peaks], "x")
+    plt.show()
+
+    auto_bins = []
+    former_value=None
+    for value in peaks:
+        if former_value is not None:
+            auto_bins.append([former_value,value])
+        former_value=value
+
+    return mav, mmd, auto_bins, peaks
+
+
+
+
+
+
+
+
+def plot_moving_average(data, start=0, end = None, nbins_=50, shapeW=30, shapeH=10) :
+    if end==None:
+        END = data.shape[0]
+    else:
+        END = end
+    START = start
+
+    plt.figure(figsize = (shapeW,shapeH))
+    im = plt.imshow(np.flip(np.rot90(data),0), aspect = 'auto', interpolation='none', origin='lower', cmap='viridis')
+    ax = plt.gca()
+    plt.locator_params(axis="x", nbins=nbins_)
+    plt.locator_params(axis="y", nbins=42)
+    plt.xlim(START,END)
+    plt.show()
+
+
+def plot_moving_average_dist(data_, start=0, end_=None, peaks=None):
+    end = end_
+    if end_==None:
+        end = data_.shape[0]
+    data = data_[start:end]
+
+    figure, ax = plt.subplots(figsize = (20,5))
+    ax.set_xlabel('Numéro de trame')
+    ax.set_ylabel('Probabilité d\'appartenance à chaque catégorie')
+    plt.plot(np.arange(0,len(data),1),data)
+    plt.locator_params(axis="x", nbins=30)
+    plt.locator_params(axis="y", nbins=10)
+    plt.xlim(start,end)
+    print(end)
+    plt.show()
+
+
+
+
+def get_indexes_trames(auto_bins, peaks_pred) :
+  ''' Return the trames for lock, login and mdp '''
+  indexes = {'lock' : [0], 'login' : [], 'mdp' : []}
+  c = peaks_pred[0]
+  i = 0
+  for j , (peak, classe) in enumerate(zip(peaks, peaks_pred)) :
+    if classe != c :
+      indexes[  list(indexes.keys())[i] ].append(j)
+      if i < 3 :
+        indexes[  list(indexes.keys())[i+1] ].append(j)
+      c = classe
+      i+=1
+  indexes['mdp'].append(len(auto_bins)-1)
+  return indexes
+
+
+
+
+def get_distance_bins(peaks) :
+  ''' Return bins most probable '''
+  auto_bins = []
+  former_value=None
+  for value in peaks:
+      if former_value is not None:
+          auto_bins.append([former_value,value])
+      former_value=value
+  return auto_bins
+
+
+
+
+def plot_prediction_proba(self, y_pred_=None, start=0, end = None, nbins_=50, shapeW=30, shapeH=10) :
+    if y_pred_ is None:
+        y_pred=self.loginmdp_predict_probas
+    else:
+        y_pred=y_pred_
+    if end==None:
+        END = y_pred.shape[0]
+    else:
+        END = end
+    START = start
+
+    plt.figure(figsize = (shapeW,shapeH))
+    im = plt.imshow(np.flip(np.rot90(y_pred),0), aspect = 'auto', interpolation='none', origin='lower', cmap='viridis')
+    ax = plt.gca()
+    plt.locator_params(axis="x", nbins=nbins_)
+    plt.locator_params(axis="y", nbins=y_pred.shape[1])
+    plt.xlim(START,END)
+    plt.show()
+
+
+
+
+
+def plot_probability_words(mdp) :
+  grid = np.flip(np.rot90([mdp[i][1] for i in range(len(mdp)-1, -1, -1)]))
+
+  fig, ax= plt.subplots(figsize=(20,3))
+  plt.imshow(grid, interpolation ='none', aspect = 'auto')
+  for (j, i), _ in np.ndenumerate(grid):
+      label = mdp[i][0][j][:3]
+      if len(label)>1:
+          ax.text(i,j,label,ha='center',va='center', c='white',fontweight='bold', fontsize=8)
+      else:
+          ax.text(i,j,label,ha='center',va='center', c='white',fontweight='bold')
+      ax.set_xlabel('Touches pressées', fontsize=13)
+      ax.set_ylabel('Ordre décroissant des 5\n touches les plus probables', fontsize=13)
+  plt.colorbar()
   plt.show()
