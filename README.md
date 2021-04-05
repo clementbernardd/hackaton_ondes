@@ -50,3 +50,13 @@ pip install -r requirements.txt
 | MLP | GRU | Random Forest |
 |---| --- | --- | 
 | ![](/images/y_test_proba_mlp.png) | ![](/images/y_test_proba_gru.png) |![](/images/y_test_proba_rf.png)  |
+
+
+- Prédictions par groupe de trame sans bruit, avec GRU par exemple : 
+
+
+| GRU |
+| --- | 
+| ![](/images/y_test_gru_stack.png) |
+
+
