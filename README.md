@@ -33,7 +33,7 @@ pip install -r requirements.txt
 - Plot de la distribution de chaque pic pour chacun des caractères 
 
 
-| GRU |
+| Box plot  |
 | --- | 
 | ![](/images/box_plot_17.png) |
 
