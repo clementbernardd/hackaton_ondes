@@ -52,11 +52,21 @@ pip install -r requirements.txt
 | ![](/images/y_test_proba_mlp.png) | ![](/images/y_test_proba_gru.png) |![](/images/y_test_proba_rf.png)  |
 
 
-- Prédictions par groupe de trame sans bruit, avec GRU par exemple : 
+- Prédictions par groupe de trames sans bruit, avec GRU par exemple : 
 
 
 | GRU |
 | --- | 
 | ![](/images/y_test_gru_stack.png) |
+
+
+- Prédictions par groupe de trames avec bruit, avec GRU par exemple : 
+
+
+| GRU avec bruit |
+| --- | 
+| ![](/images/y_test_gru_noise.png) |
+
+
 
 
