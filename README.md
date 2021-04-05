@@ -28,6 +28,21 @@ Utiliser un 'venv' ou un environnement 'conda', puis récupérer les versions :
 ```
 pip install -r requirements.txt
 ```
+## Etudes des données 
+
+- Plot de la distribution de chaque pic pour chacun des caractères 
+
+
+| GRU |
+| --- | 
+| ![](/images/box_plot_17.png) |
+
+La distribution de certains pics pourraient permettre d'identifier un caractère
+
+
+
+
+
 
 ## Entrainement des modèles
 
