@@ -126,6 +126,13 @@ Plus on regroupe par trame, et plus on réduit le bruit, mais on perd de la pré
 
 
 
+## Résultats 
+
+- La prédiction des logins et de mot de passe possible se trouve dans : 
+ - `predictions`
+Il y a un fichier `login.csv` et `mdp.csv` avec les prédictions des logins et des mdp les plus probables. 
+- Nous pensons que le login est le suivant : **DGAMI** et le mot de passe : **hackaton2021**
+
 
 
 
