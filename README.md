@@ -68,5 +68,5 @@ pip install -r requirements.txt
 | ![](/images/y_test_gru_noise.png) |
 
 
-
+- On retient finalement que la prédiction avec Random Forest trame par trame car le modèle classifie moins bien mais donne plus de données sur les probabilités de chaque caractère. 
 
