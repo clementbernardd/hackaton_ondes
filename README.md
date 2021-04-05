@@ -177,6 +177,7 @@ Il y a un fichier `login.csv` et `mdp.csv` avec les prédictions des logins et d
 - `models_noise.zip`: Fichier zip de `models_noise`
 - `models_stack.zip`: Fichier zip de `models_stack`
 - `python.zip`: Fichier zip de `python`
+- `rapport` : Dossier avec le rapport final
 - `requirements.txt` : Ficher avec les requirements sous format txt
  
 
