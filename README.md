@@ -104,11 +104,36 @@ Plus on regroupe par trame, et plus on réduit le bruit, mais on perd de la pré
 
 - Utilisation d'un algorithme de clustering pour différencier 3 groupes : 1) déverouillage 2) login et 3) mot de passe. 
 
+| Clustering en 3 groupes  | 3 groupes obtenus |
+| --- | --- | 
+| ![](/images/pics.png) | ![](/images/clustering_groupes.png) | 
+
+- Distance par rapport aux touches connues (avec la matrice de confusion) pour chaque touche pressée
+
 | Clustering en 3 groupes  |
 | --- | 
-<a >
-    <img src='./images/clustering.png'  width="400"/>
-</a>
+| ![](/images/distance_touches_connues.png) | 
+
+
+
+- Identification des caractères : on considère pour chaque groupe de trames les caractères les plus probables.
+
+
+| Prédictions des caractères  |
+| --- | 
+| ![](/images/caracteres.png) | 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
