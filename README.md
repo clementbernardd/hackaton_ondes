@@ -48,5 +48,5 @@ pip install -r requirements.txt
 - Prédictions trame par trame, avec les probabilités d'être dans un label :
 
 | MLP | GRU | Random Forest |
-|---| --- |
+|---| --- | --- | 
 | ![](/images/y_test_proba_mlp.png) | ![](/images/y_test_proba_gru.png) |![](/images/y_test_proba_rf.png)  |
