@@ -40,3 +40,13 @@ pip install -r requirements.txt
 | MLP | GRU |
 |---| --- |
 | ![](/images/acc_noise_mlp.png) | ![](/images/acc_noise_gru.png) |
+
+
+
+## Prédictions sur l'ensemble de test : les données d'un utilisateur
+
+- Prédictions trame par trame, avec les probabilités d'être dans un label :
+
+| MLP | GRU | Random Forest |
+|---| --- |
+| ![](/images/y_test_proba_mlp.png) | ![](/images/y_test_proba_gru.png) |![](/images/y_test_proba_rf.png)  |
