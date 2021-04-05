@@ -27,12 +27,16 @@ pip install -r requirements.txt
 |---| --- |
 | ![](/images/acc.png) | ![](/images/f1_scores.png) |
 
+Les modèles MLP et GRU sont plus précis que Random Forest sur les données d'entrainement et de validation.
+
 
 - Utilisation de MLP et GRU pour données regroupées en groupe de trames : 1, 5, 10, 25, 100 et 200
 
 | MLP | GRU |
 |---| --- |
 | ![](/images/acc_without_noise_mlp.png) | ![](/images/acc_without_noise_gru.png) |
+
+Plus on regroupe par trame, et meilleure est l'accuracy. 
 
 
 - Utilisation de MLP et GRU pour données regroupées en groupe de trames avec ajout de bruit sur les données d'entrainement
@@ -41,15 +45,20 @@ pip install -r requirements.txt
 |---| --- |
 | ![](/images/acc_noise_mlp.png) | ![](/images/acc_noise_gru.png) |
 
+Les regroupements par trame avec bruit est efficace pour un regroupement faible, et pas pour un groupe de trames élevé
 
 
 ## Prédictions sur l'ensemble de test : les données d'un utilisateur
+
 
 - Prédictions trame par trame, avec les probabilités d'être dans un label :
 
 | MLP | GRU | Random Forest |
 |---| --- | --- | 
 | ![](/images/y_test_proba_mlp.png) | ![](/images/y_test_proba_gru.png) |![](/images/y_test_proba_rf.png)  |
+
+Les modèles MLP et GRU sont plus précis et donc ont du mal à reconnaitre les différences lorsque plusieurs touches sont appuyés en même temps.
+Random Forest est moins bon et donc est plus ambigue : il peut donc voit lorsque deux touches sont appuyées en même temps
 
 
 - Prédictions par groupe de trames sans bruit, avec GRU par exemple : 
@@ -58,6 +67,9 @@ pip install -r requirements.txt
 | GRU |
 | --- | 
 | ![](/images/y_test_gru_stack.png) |
+
+Plus on regroupe par trame, et plus on réduit le bruit, mais on perd de la précision et n'arrivons pas à distinguer entre plusieurs touches pressées en même temps. 
+
 
 
 - Prédictions par groupe de trames avec bruit, avec GRU par exemple : 
@@ -69,4 +81,20 @@ pip install -r requirements.txt
 
 
 - On retient finalement que la prédiction avec Random Forest trame par trame car le modèle classifie moins bien mais donne plus de données sur les probabilités de chaque caractère. 
+
+
+## Décodage du login et mot de passe 
+
+- On utilise la matrice de confusion sur l'ensemble de validation de Random forest pour prédire les caractères sur plusieurs trames. 
+
+
+
+| Matrice de confusion | Prédictions de Random Forest |
+|---| --- |
+| ![](/images/confusion_matrix.png) | ![](/images/y_test_confusion.png) |
+
+
+
+
+
 
