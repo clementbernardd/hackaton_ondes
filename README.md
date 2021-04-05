@@ -14,14 +14,10 @@ Hacker le login et le mdp sur une interception d'ondes radios.
 ## Equipes 
 
 
-- Maxence Brugères (Telecom Paris & Sciences Po)
-Rôle : Classification random forest, outil de séparation de trames en touche, outil de production de mots
-- Clément Bernard (Telecom Paris & Polytechnique Montréal)
-Rôle : Classification GRU, MLP, outil de séparation des touches du login et du mot de passe, mco du répo Github
-- Inès Benito (ENSTA Bretagne)
-Rôle : Classification via d’autre modèle (Logistic regression, KNN), recherches théoriques et appliquées pour entrainer des modèles avec des loss custom, synthèse des travaux pour le rapport, data visualisation
-- Corentin Lestrat (ENSTA Bretagne)
-Rôle : État de l’art des exploitations de SPC avec du machine learning, recherche biblio sur des sujets divers en support sachant qu’il n’avait aucune formation technique en machine learning, social engineering
+- `Maxence Brugères (Telecom Paris & Sciences Po)` :  Classification random forest, outil de séparation de trames en touche, outil de production de mots
+- `Clément Bernard (Telecom Paris & Polytechnique Montréal)` : Classification GRU, MLP, outil de séparation des touches du login et du mot de passe, mco du répo Github
+- `Inès Benito (ENSTA Bretagne)` :  Classification via d’autre modèle (Logistic regression, KNN), recherches théoriques et appliquées pour entrainer des modèles avec des loss custom, synthèse des travaux pour le rapport, data visualisation
+- `Corentin Lestrat (ENSTA Bretagne)` : État de l’art des exploitations de SPC avec du machine learning, recherche biblio sur des sujets divers en support sachant qu’il n’avait aucune formation technique en machine learning, social engineering
 
 
 
