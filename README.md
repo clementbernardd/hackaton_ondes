@@ -95,15 +95,18 @@ Plus on regroupe par trame, et plus on réduit le bruit, mais on perd de la pré
 
 
 
-- Identification des trames appartenant à une même touche pressée.  Utilisation d'une fenêtre glissante sur 30 trames pour lisser les probabilités, puis on moyenne la distance euclidienne entre chacun des vecteurs de probabilités.  Utilisation d'un algorithme de clustering pour différencier 1) déverouillage 2) login et 3) mot de passe. 
+- Identification des trames appartenant à une même touche pressée. Utilisation d'une fenêtre glissante sur 30 trames pour lisser les probabilités, puis on moyenne la distance euclidienne entre chacun des vecteurs de probabilités.  
 
-| Identification des trames d'une même touche | Clustering en 3 groupes  |
-|---| --- |
-| ![](/images/pics.png) | ![](/images/clustering.png) |
-
-
+| Identification des trames d'une même touche | 
+|---| 
+| ![](/images/pics.png) | 
 
 
+- Utilisation d'un algorithme de clustering pour différencier 3 groupes : 1) déverouillage 2) login et 3) mot de passe. 
+
+| Clustering en 3 groupes  |
+| --- | 
+| ![](/images/clustering.png) |
 
 
 
