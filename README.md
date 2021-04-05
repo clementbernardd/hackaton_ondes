@@ -20,4 +20,12 @@ pip install -r requirements.txt
 
 ```
 
-## Entrainement du modèle
+## Entrainement des modèles
+
+- Utilisation de MLP, GRU et Random Forest pour la classification multi-classe (42 classes)
+
+| Accuracy | F1 score |
+|---| --- |
+| ![](/images/acc.png) | ![](/images/f1_scores.png) |
+
+  
