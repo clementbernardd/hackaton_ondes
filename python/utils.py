@@ -389,7 +389,7 @@ def plot_moving_average_dist(data_, start=0, end_=None, peaks=None):
 
 
 
-def get_indexes_trames(auto_bins, peaks_pred) :
+def get_indexes_trames(auto_bins, peaks_pred,peaks) :
   ''' Return the trames for lock, login and mdp '''
   indexes = {'lock' : [0], 'login' : [], 'mdp' : []}
   c = peaks_pred[0]
