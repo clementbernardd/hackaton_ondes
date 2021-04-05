@@ -85,13 +85,23 @@ Plus on regroupe par trame, et plus on réduit le bruit, mais on perd de la pré
 
 ## Décodage du login et mot de passe 
 
-- On utilise la matrice de confusion sur l'ensemble de validation de Random forest pour prédire les caractères sur plusieurs trames. 
+- On utilise la matrice de confusion sur l'ensemble de validation de Random forest pour prédire les caractères sur plusieurs trames (minimisation de la distance entre les lignes de la matrice de confusion et les probabilités de prédiction de Random Forest). 
 
 
 
 | Matrice de confusion | Prédictions de Random Forest |
 |---| --- |
 | ![](/images/confusion_matrix.png) | ![](/images/y_test_confusion.png) |
+
+
+
+- Identification des trames appartenant à une même touche pressée.  Utilisation d'une fenêtre glissante sur 30 trames pour lisser les probabilités, puis on moyenne la distance euclidienne entre chacun des vecteurs de probabilités.  Utilisation d'un algorithme de clustering pour différencier 1) déverouillage 2) login et 3) mot de passe. 
+
+| Identification des trames d'une même touche | Clustering en 3 groupes  |
+|---| --- |
+| ![](/images/pics.png) | ![](/images/clustering.png) |
+
+
 
 
 
