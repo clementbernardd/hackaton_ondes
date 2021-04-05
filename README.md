@@ -106,7 +106,9 @@ Plus on regroupe par trame, et plus on réduit le bruit, mais on perd de la pré
 
 | Clustering en 3 groupes  |
 | --- | 
-| ![](/images/clustering.png) |
+<a >
+    <img src='./images/clustering.png'  width="400"/>
+</a>
 
 
 
