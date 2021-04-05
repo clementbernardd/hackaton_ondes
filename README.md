@@ -106,7 +106,7 @@ Plus on regroupe par trame, et plus on réduit le bruit, mais on perd de la pré
 
 | Clustering en 3 groupes  | 3 groupes obtenus |
 | --- | --- | 
-| ![](/images/pics.png) | ![](/images/clustering_groupes.png) | 
+| ![](/images/clustering.png) | ![](/images/clustering_groupes.png) | 
 
 - Distance par rapport aux touches connues (avec la matrice de confusion) pour chaque touche pressée
 
