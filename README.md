@@ -17,7 +17,6 @@ Hacker le login et le mdp sur une interception d'ondes radios
 Utiliser un 'venv' ou un environnement 'conda', puis récupérer les versions :
 ```
 pip install -r requirements.txt
-
 ```
 
 ## Entrainement des modèles
@@ -27,5 +26,3 @@ pip install -r requirements.txt
 | Accuracy | F1 score |
 |---| --- |
 | ![](/images/acc.png) | ![](/images/f1_scores.png) |
-
-  
