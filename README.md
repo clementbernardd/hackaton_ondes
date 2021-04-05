@@ -26,3 +26,17 @@ pip install -r requirements.txt
 | Accuracy | F1 score |
 |---| --- |
 | ![](/images/acc.png) | ![](/images/f1_scores.png) |
+
+
+- Utilisation de MLP et GRU pour données regroupées en groupe de trames : 1, 5, 10, 25, 100 et 200
+
+| MLP | GRU |
+|---| --- |
+| ![](/images/acc_without_noise_mlp.png) | ![](/images/acc_without_noise_gru.png) |
+
+
+- Utilisation de MLP et GRU pour données regroupées en groupe de trames avec ajout de bruit sur les données d'entrainement
+
+| MLP | GRU |
+|---| --- |
+| ![](/images/acc_noise_mlp.png) | ![](/images/acc_noise_gru.png) |
