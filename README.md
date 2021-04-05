@@ -151,14 +151,14 @@ Il y a un fichier `login.csv` et `mdp.csv` avec les prédictions des logins et d
 
 - `Hackaton` : Fichiers avec les données du challenge
 - `images` : Images utilisées dans le README
-- `models` : Les modèles enregistrés lors de training 
+- `models_simple` : Les modèles enregistrés lors de training 
 - `models_noise` : Les modèles entrainés avec du bruit 
 - `models_stack` : Les modèles entrainés sans bruit et par groupement de trames 
 - `notebook` : Dossier avec les notebooks utilisés 
 - `prédictions` : Les prédictions du login et mot de passe 
 - `python` : Fichiers python utilisés 
 - `Hackaton.zip` : Fichier zip de `Hackaton` 
-- `models.zip`: Fichier zip de `models`
+- `models.zip`: Fichier zip de `models_simple`
 - `models_noise.zip`: Fichier zip de `models_noise`
 - `models_stack.zip`: Fichier zip de `models_stack`
 - `python.zip`: Fichier zip de `python`
