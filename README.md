@@ -19,7 +19,11 @@ Hacker le login et le mdp sur une interception d'ondes radios.
 - `Inès Benito (ENSTA Bretagne)` :  Classification via d’autre modèle (Logistic regression, KNN), recherches théoriques et appliquées pour entrainer des modèles avec des loss custom, synthèse des travaux pour le rapport, data visualisation
 - `Corentin Lestrat (ENSTA Bretagne)` : État de l’art des exploitations de SPC avec du machine learning, recherche biblio sur des sujets divers en support sachant qu’il n’avait aucune formation technique en machine learning, social engineering
 
+## Vidéo 
 
+Voici le lien vers un résumé de 3 minutes de notre projet : 
+
+https://www.youtube.com/watch?v=0zF37YekAM4
 
 
 ## Installation
